@@ -32,9 +32,9 @@ app.use(express.static("uploads"))
 
 
 
-const PORT=4000;
 
-app.listen(PORT,()=>{
-  console.log(`server runn on POrt ${PORT}`)
-})
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+
 
