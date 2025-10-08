@@ -11,10 +11,15 @@ dotenv.config();
 const app = express();
 app.use(cookieParser());
 await connectDB();
-app.use(cors({
-  origin: 'http://localhost:5173', // ✅ Vite frontend URL
-  credentials: true,               // ✅ Allow cookies / token
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173", // ✅ Local frontend
+      "https://boisterous-meringue-d714fd.netlify.app", // ✅ Deployed frontend
+    ],
+    credentials: true, // ✅ Allow cookies / tokens
+  })
+);
 
 
 app.use(express.json());
